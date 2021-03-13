@@ -3,9 +3,11 @@ import styles from '../styles/AddPreferences.module.scss'
 import { Formik, Form, Field, ErrorMessage } from "formik"
 import * as Yup from "yup"
 import DropDown from '../components/DropDown'
+import { useStateValue } from '../state/state'
 
 
 export default function AddPreferencesPage() {
+  const [{ formSubmitted }, dispatch] = useStateValue()
 
   const initialValues = {
     name: '',
@@ -49,14 +51,15 @@ export default function AddPreferencesPage() {
       <Formik
         initialValues={initialValues}
         validationSchema={validationSchema}
-        onSubmit={values => {
-          console.log('FORM SUBMIT', values)
+        onSubmit={() => {
+          dispatch({
+            type: 'setFormSubmitted',
+            value: true
+          })
         }}
       >
         {formik => {
           const { errors, touched, isValid, dirty } = formik
-
-          console.log('VALUES', formik.values)
 
           return (
             <div className="container">
@@ -140,6 +143,7 @@ export default function AddPreferencesPage() {
                   Zapisz
                 </button>
               </Form>
+              {formSubmitted && <p className={styles['success-message']}>Twoje dane zostały zapisane!</p>}
             </div>
           )
         }}

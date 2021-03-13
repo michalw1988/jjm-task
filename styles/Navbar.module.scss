@@ -1,6 +1,7 @@
 .container {
   padding: 0 32px;
   border-bottom: 3px solid #000;
+  background: #f8f8f8;
 
   @media (max-width: 640px) {
     padding: 0 16px;
@@ -14,15 +15,26 @@
 
   .link {
     margin-right: 32px;
-    padding: 16px 0;
+    padding: 16px 8px;
 
     @media (max-width: 640px) {
       margin-right: 16px;
       font-size: 14px;
     }
 
-    &.linkActive {
+    &.link-active {
       font-weight: bold;
+    }
+
+    &.link-disabled {
+      font-weight: normal;
+      color:#ccc;
+      background: #ff0;
+
+      a {
+        cursor: default;
+        user-select: none;
+      }
     }
   }
 }
