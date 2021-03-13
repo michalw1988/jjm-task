@@ -1,6 +1,6 @@
 import React, { createContext, useContext, useReducer } from 'react';
 
-const StateContext = createContext(null)
+const StateContext = createContext({})
 
 interface StateProvider {
   reducer: (state: object, action: any) => object,

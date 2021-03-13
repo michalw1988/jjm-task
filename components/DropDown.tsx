@@ -1,4 +1,4 @@
-import { useField, FieldProps, ErrorMessage } from "formik";
+import { useField, FieldProps } from "formik";
 import Select, { Option, ReactSelectProps } from "react-select";
 
 interface PropsType {
@@ -11,7 +11,6 @@ const DropDown: React.FC<ReactSelectProps & FieldProps> = ({
 }: PropsType) => {
   const [field, meta, helpers] = useField(props);
   const { options, placeholder } = props
-  const { touched, error, value } = meta
   const { setValue } = helpers
 
   const customStyles = {
