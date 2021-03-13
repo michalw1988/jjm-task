@@ -1,0 +1,28 @@
+.container {
+  padding: 0 32px;
+  border-bottom: 3px solid #000;
+
+  @media (max-width: 640px) {
+    padding: 0 16px;
+  }
+
+  .inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+  }
+
+  .link {
+    margin-right: 32px;
+    padding: 16px 0;
+
+    @media (max-width: 640px) {
+      margin-right: 16px;
+      font-size: 14px;
+    }
+
+    &.linkActive {
+      font-weight: bold;
+    }
+  }
+}
