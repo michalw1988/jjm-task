@@ -1,29 +1,12 @@
 import '../styles/globals.scss'
 import Navbar from '../components/Navbar'
 import { StateProvider } from '../state/state'
+import { initialState } from '../state/initialState'
+import { reducer } from '../state/reducer'
+import type { AppProps } from 'next/app'
 
-interface IProps {
-  Component: any
-  pageProps: object
-}
 
-const initialState = {
-  formSubmitted: false,
-}
-
-const reducer = (state: object, action: any) => {
-  switch (action.type) {
-    case 'setFormSubmitted':
-      return {
-        ...state,
-        formSubmitted: action.value
-      }
-    default:
-      return state;
-  }
-}
-
-function MyApp({ Component, pageProps }: IProps) {
+function JJMTaskApp({ Component, pageProps }: AppProps) {
   return <div>
     <StateProvider initialState={initialState} reducer={reducer}>
       <Navbar />
@@ -32,4 +15,4 @@ function MyApp({ Component, pageProps }: IProps) {
   </div>
 }
 
-export default MyApp
+export default JJMTaskApp

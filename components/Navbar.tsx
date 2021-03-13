@@ -10,8 +10,6 @@ export default function Navbar() {
   const router = useRouter()
   const pathname = router.pathname
 
-  console.log('formSubmitted', formSubmitted)
-
   return (
     <div className={styles.container}>
       <div className={styles.inner}>
