@@ -23,6 +23,7 @@
     "yup": "^0.32.9"
   },
   "devDependencies": {
+    "@types/classnames": "^2.2.11",
     "@types/react-select": "^4.0.13"
   }
 }
