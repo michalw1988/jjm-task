@@ -2,6 +2,7 @@
 
   .form-row {
     margin-bottom: 8px;
+    width: 300px;
 
     label {
       display: block;
@@ -13,14 +14,31 @@
       width: 300px;
       border: 1px solid #333;
       border-radius: 3px;
-      padding: 8px;
-      outline: 0;
+      padding: 10px;
+      outline: none;
     }
 
     span.error {
       display: block;
       font-size: 14px;
       color: red;
+    }
+  }
+
+  button {
+    margin-top: 16px;
+    padding: 10px 32px;
+    background: #fff;
+    border: 1px solid #333;
+    border-radius: 3px;
+    outline: none;
+    cursor: pointer;
+
+    &.disabled {
+      color: #aaa;
+      background: #fff;
+      border: 1px solid #aaa;
+      cursor: default;
     }
   }
 }
