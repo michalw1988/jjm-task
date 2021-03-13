@@ -13,6 +13,7 @@ export default function AddPreferencesPage() {
     phone: '',
     sector: '',
     reason: '',
+    termsOfUse: false,
   }
 
   const validationSchema = Yup.object().shape({
@@ -30,14 +31,16 @@ export default function AddPreferencesPage() {
         is: 'sector4',
         then: Yup.string().required("To pole jest wymagane")
       }),
+    termsOfUse: Yup.bool()
+      .oneOf([true], "Akceptacja regulaminu jest wymagana"),
   })
 
-  const options = [
+  const sectorOptions = [
     { value: "sector1", label: "Branża 1" },
     { value: "sector2", label: "Branża 2" },
     { value: "sector3", label: "Branża 3" },
     { value: "sector4", label: "Branża 4" },
-  ];
+  ]
 
   return (
     <Layout title="Dodaj preferencje">
@@ -52,6 +55,9 @@ export default function AddPreferencesPage() {
       >
         {formik => {
           const { errors, touched, isValid, dirty } = formik
+
+          console.log('VALUES', formik.values)
+
           return (
             <div className="container">
               <p>Wypełnij formularz, aby dodać swoją preferencję zawodowową.</p>
@@ -94,7 +100,7 @@ export default function AddPreferencesPage() {
                   <label htmlFor="sector">Branża</label>
                   <DropDown
                     name="sector"
-                    options={options}
+                    options={sectorOptions}
                     id="sector"
                     placeholder="Wybierz branżę"
                   />
@@ -115,6 +121,17 @@ export default function AddPreferencesPage() {
                   </div>
                 }
 
+                <div className={styles['form-row']}>
+                    <Field 
+                      className={styles.checkbox}
+                      type="checkbox" 
+                      name="termsOfUse"
+                      id="termsOfUse"
+                    />
+                    <label className={styles['checkbox-label']} htmlFor="termsOfUse">Akceptuję regulamin portalu</label>
+                  <ErrorMessage name="termsOfUse" component="span" className={styles.error} />
+                </div>
+
                 <button
                   type="submit"
                   className={`${!(dirty && isValid) ? styles.disabled : null}`}
@@ -124,7 +141,7 @@ export default function AddPreferencesPage() {
                 </button>
               </Form>
             </div>
-          );
+          )
         }}
       </Formik>
     </Layout>
