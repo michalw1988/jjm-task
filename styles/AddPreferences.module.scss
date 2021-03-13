@@ -1,0 +1,26 @@
+.preferences-form {
+
+  .form-row {
+    margin-bottom: 8px;
+
+    label {
+      display: block;
+      font-size: 14px;
+      color: #333;
+    }
+
+    input {
+      width: 300px;
+      border: 1px solid #333;
+      border-radius: 3px;
+      padding: 8px;
+      outline: 0;
+    }
+
+    span.error {
+      display: block;
+      font-size: 14px;
+      color: red;
+    }
+  }
+}
